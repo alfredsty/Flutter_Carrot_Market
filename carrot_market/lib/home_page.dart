@@ -13,6 +13,18 @@ class _HomePageState extends State<HomePage> {
   // 생성자
   @override
   Widget build(BuildContext context) {
+    final List<String> images = [
+      "https://cdn2.thecatapi.com/images/6bt.jpg",
+      "https://cdn2.thecatapi.com/images/ahr.jpg",
+      "https://cdn2.thecatapi.com/images/arj.jpg",
+      "https://cdn2.thecatapi.com/images/brt.jpg",
+      "https://cdn2.thecatapi.com/images/cml.jpg",
+      "https://cdn2.thecatapi.com/images/e35.jpg",
+      "https://cdn2.thecatapi.com/images/MTk4MTAxOQ.jpg",
+      "https://cdn2.thecatapi.com/images/MjA0ODM5MQ.jpg",
+      "https://cdn2.thecatapi.com/images/AuY1uMdmi.jpg",
+      "https://cdn2.thecatapi.com/images/AKUofzZW_.png",
+    ];
     // 좋아요 여부
     bool isFavorite = false;
     return Scaffold(
@@ -55,11 +67,12 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView.separated(
-          itemCount: 10,
+          itemCount: images.length,
           itemBuilder: (context, index) {
+            final image = images[index];
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Feed(),
+              child: Feed(imgUrl: image),
             );
           },
           separatorBuilder: (context, index) {
